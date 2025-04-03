@@ -85,7 +85,7 @@ df = spark.range(1, records + 1).toDF("id") \
 df = df.withColumn("termination_date", udf_generate_termination_date(col("hire_date")))
 
 # Save to CSV
-df.write.csv("data/employees_pyspark.csv", header=True, mode="overwrite")
+df.write.csv("./data/employees_pyspark.csv", header=True, mode="overwrite")
 
 df.show()
 
