@@ -1,29 +1,29 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import udf
+from pyspark.sql.functions import udf, col, when
 from pyspark.sql.types import StringType, FloatType, DateType
 import random
 import unidecode
 from faker import Faker
 from datetime import date
 
-# Crear sesión de Spark
+# Create Spark session
 spark = SparkSession.builder \
     .appName("Synthetic Employee Data") \
     .getOrCreate()
 
-# Inicializar Faker
-fake = Faker("es_CL")
+# Initialize Faker
+fake = Faker("en_US")
 Faker.seed(42)
 random.seed(42)
 
-# Lista de departamentos
+# List of departments
 departments = ['Sales', 'IT', 'Human Resources', 'Marketing', 'Finance', 'Operations']
 
-# Conjuntos para unicidad
+# Sets for uniqueness
 unique_names = set()
 unique_phones = set()
 
-# Funciones UDFs
+# UDF Functions
 def get_unique_name():
     name = fake.name()
     while name in unique_names:
@@ -41,7 +41,7 @@ def get_unique_phone():
 def generate_email(name, department):
     name_clean = unidecode.unidecode(name.replace(" ", "").lower())
     department_clean = department.replace(" ", "").lower()
-    return f"{name_clean}@{department_clean}.cl"
+    return f"{name_clean}@{department_clean}.com"
 
 def generate_birthdate():
     return fake.date_of_birth(minimum_age=30, maximum_age=50)
@@ -52,18 +52,25 @@ def generate_hiredate():
 def generate_salary():
     return round(random.uniform(30000, 50000), 2)
 
-# Registrar funciones como UDFs
+def generate_termination_date(hire_date):
+    """ Assigns a termination date to approximately 30% of employees. """
+    if random.random() < 0.3:  # 30% of employees will be terminated
+        return fake.date_between(start_date=hire_date, end_date="today")
+    return None
+
+# Register functions as UDFs
 udf_get_unique_name = udf(get_unique_name, StringType())
 udf_get_unique_phone = udf(get_unique_phone, StringType())
 udf_generate_email = udf(generate_email, StringType())
 udf_generate_birthdate = udf(generate_birthdate, DateType())
 udf_generate_hiredate = udf(generate_hiredate, DateType())
 udf_generate_salary = udf(generate_salary, FloatType())
+udf_generate_termination_date = udf(generate_termination_date, DateType())
 
-# Número de registros a generar
+# Number of records to generate
 records = 1_000_000
 
-# Crear DataFrame con Spark
+# Create DataFrame with Spark
 df = spark.range(1, records + 1).toDF("id") \
     .withColumn("name", udf_get_unique_name()) \
     .withColumn("date_birth", udf_generate_birthdate()) \
@@ -74,12 +81,15 @@ df = spark.range(1, records + 1).toDF("id") \
     .withColumn("city", udf_get_unique_name()) \
     .withColumn("hire_date", udf_generate_hiredate())
 
-# Guardar en CSV
-df.write.csv("employees_pyspark.csv", header=True, mode="overwrite")
+# Add termination date based on hire date
+df = df.withColumn("termination_date", udf_generate_termination_date(col("hire_date")))
+
+# Save to CSV
+df.write.csv("data/employees_pyspark.csv", header=True, mode="overwrite")
 
 df.show()
 
-print("Archivo 'employees_pyspark.csv' generado exitosamente.")
+print("File 'employees_pyspark.csv' successfully generated.")
 
-# Cerrar sesión de Spark
+# Close Spark session
 spark.stop()
