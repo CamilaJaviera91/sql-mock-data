@@ -10,7 +10,7 @@ df_list = [pd.read_csv(file) for file in csv_files]
 df_combined = pd.concat(df_list, ignore_index=True)
 
 # PostgreSQL connection
-engine = create_engine('postgresql://admin:admin123@localhost:5432/postgres')
+engine = create_engine("postgresql+psycopg2://postgres:admin123@localhost:5432/postgres")
 
 # Upload all data at once
 df_combined.to_sql('employees', engine, if_exists='append', index=False)
