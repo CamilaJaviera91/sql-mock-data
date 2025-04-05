@@ -55,7 +55,7 @@ def generate_salary():
     return round(random.uniform(30000, 50000), 2)
 
 def generate_department():
-    return fake.random_choices(departments)
+    return fake.random_element(departments)
 
 def generate_termination_date(hire_date):
     """ Assigns a termination date to approximately 30% of employees. """
