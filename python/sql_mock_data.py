@@ -2,10 +2,10 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import udf, col
 from pyspark.sql.types import StringType, FloatType, DateType
 import random
-import unidecode
 from faker import Faker
 import os
 import shutil
+import unidecode
 
 # Create Spark session
 spark = SparkSession.builder \
@@ -20,7 +20,7 @@ random.seed(42)
 # List of departments
 departments = ['Sales', 'IT', 'Human Resources', 'Marketing', 'Finance', 'Operations']
 
-company = fake.company()
+company = "cod.diy"
 
 # Sets for uniqueness
 unique_names = set()
@@ -41,11 +41,10 @@ def get_unique_phone():
     unique_phones.add(phone)
     return phone
 
-def generate_email(name, department, company):
+def generate_email_simple(name):
     name_clean = unidecode.unidecode(name.replace(" ", "").lower())
-    department_clean = department.replace(" ", "").lower()
-    company_clean = company.replace(" ", "").lower()
-    return f"{name_clean}@{department_clean}_{company_clean}.com"
+    company_clean = company.lower()
+    return f"{name_clean}@{company_clean}.com"
 
 def generate_birthdate():
     return fake.date_of_birth(minimum_age=30, maximum_age=50)
@@ -71,7 +70,7 @@ def generate_termination_date(hire_date):
 # Register functions as UDFs
 udf_get_unique_name = udf(get_unique_name, StringType())
 udf_get_unique_phone = udf(get_unique_phone, StringType())
-udf_generate_email = udf(generate_email, StringType())
+udf_generate_email = udf(generate_email_simple, StringType())
 udf_generate_birthdate = udf(generate_birthdate, DateType())
 udf_generate_city = udf(generate_city, StringType())
 udf_generate_hiredate = udf(generate_hiredate, DateType())
@@ -87,7 +86,7 @@ df = spark.range(1, records + 1).toDF("id") \
     .withColumn("name", udf_get_unique_name()) \
     .withColumn("date_birth", udf_generate_birthdate()) \
     .withColumn("department", udf_generate_department()) \
-    .withColumn("email", udf_generate_email("name", "department")) \
+    .withColumn("email", udf_generate_email(col("name"))) \
     .withColumn("phonenumber", udf_get_unique_phone()) \
     .withColumn("yearly_salary", udf_generate_salary()) \
     .withColumn("city", udf_generate_city()) \
@@ -100,20 +99,30 @@ df = df.withColumn("termination_date", udf_generate_termination_date(col("hire_d
 df.repartition(12).write.csv("./data/temp_employees/", header=True, mode="overwrite")
 
 # Rename part file to desired name
-temp_dir = "./data/temp_employees/"
-final_csv_path = "./data/employees.csv"
+input_folder = "./data/temp_employees/"
+output_folder = "./data/"
 
-# Find the generated part file and rename it
-for filename in os.listdir(temp_dir):
-    if filename.startswith("part-") and filename.endswith(".csv"):
-        shutil.move(os.path.join(temp_dir, filename), final_csv_path)
-        break
+# Create output folder if it doesn't exist
+os.makedirs(output_folder, exist_ok=True)
 
-shutil.rmtree(temp_dir)  # Cleanup _SUCCESS and temp dir
+# List all files in the folder
+files = sorted(f for f in os.listdir(input_folder) if f.startswith("part-") and f.endswith(".csv"))
+
+for i, filename in enumerate(files):
+    src = os.path.join(input_folder, filename)
+    dst = os.path.join(output_folder, f"employees_part_{i+1:02d}.csv")  # e.g., employees_part_01.csv
+    shutil.move(src, dst)
+
+# Remove _SUCCESS and temp folder
+success_file = os.path.join(input_folder, "_SUCCESS")
+if os.path.exists(success_file):
+    os.remove(success_file)
+
+shutil.rmtree(input_folder)
 
 df.show(5)
 
-print("File 'employees.csv' successfully generated.")
+print("Split files successfully generated in 'data/'")
 
 # Close Spark session
 spark.stop()
