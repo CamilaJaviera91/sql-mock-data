@@ -42,9 +42,22 @@ def get_unique_phone():
     return phone
 
 def generate_email_simple(name):
-    name_clean = unidecode.unidecode(name.replace(" ", "").lower())
+    parts = name.strip().split()
+    if len(parts) == 2 or len(parts) == 3:
+        first_name = parts[0]
+        last_name = parts[1]
+    elif  len(parts) == 4:
+        first_name = parts[0]
+        last_name = parts[2]
+    else:
+        first_name = parts[0]
+        last_name = ""
+
+    first_clean = unidecode.unidecode(first_name.lower())
+    last_clean = unidecode.unidecode(last_name.lower())
     company_clean = company.replace(".", "").replace(" ", "").lower()
-    return f"{name_clean}@{company_clean}.com"
+
+    return f"{first_clean}.{last_clean}@{company_clean}.com"
 
 def generate_birthdate():
     return fake.date_of_birth(minimum_age=30, maximum_age=50)
