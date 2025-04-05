@@ -3,7 +3,7 @@ import glob
 from sqlalchemy import create_engine
 
 # Path to all CSV files in the folder
-csv_files = glob.glob('./data/employees_pyspark.csv/*.csv')
+csv_files = glob.glob('./data/*.csv')
 
 # Read and concatenate all CSVs into a single DataFrame
 df_list = [pd.read_csv(file) for file in csv_files]
