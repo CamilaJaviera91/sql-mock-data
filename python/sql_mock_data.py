@@ -4,6 +4,8 @@ from pyspark.sql.types import StringType, FloatType, DateType
 import random
 import unidecode
 from faker import Faker
+import os
+import shutil
 
 # Create Spark session
 spark = SparkSession.builder \
@@ -92,11 +94,23 @@ df = spark.range(1, records + 1).toDF("id") \
 df = df.withColumn("termination_date", udf_generate_termination_date(col("hire_date")))
 
 # Save to CSV
-df.write.csv("./data/employees_pyspark.csv", header=True, mode="overwrite")
+df.repartition(1).write.csv("./data/temp_employees/", header=True, mode="overwrite")
+
+# Rename part file to desired name
+temp_dir = "./data/temp_employees/"
+final_csv_path = "./data/employees.csv"
+
+# Find the generated part file and rename it
+for filename in os.listdir(temp_dir):
+    if filename.startswith("part-") and filename.endswith(".csv"):
+        shutil.move(os.path.join(temp_dir, filename), final_csv_path)
+        break
+
+shutil.rmtree(temp_dir)  # Cleanup _SUCCESS and temp dir
 
 df.show()
 
-print("File 'employees_pyspark.csv' successfully generated.")
+print("File 'employees.csv' successfully generated.")
 
 # Close Spark session
 spark.stop()
