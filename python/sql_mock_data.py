@@ -20,7 +20,7 @@ random.seed(42)
 # List of departments
 departments = ['Sales', 'IT', 'Human Resources', 'Marketing', 'Finance', 'Operations']
 
-company = "cod.diy"
+company = "COD. DIY"
 
 # Sets for uniqueness
 unique_names = set()
@@ -43,7 +43,7 @@ def get_unique_phone():
 
 def generate_email_simple(name):
     name_clean = unidecode.unidecode(name.replace(" ", "").lower())
-    company_clean = company.lower()
+    company_clean = company.replace(".", "").replace(" ", "").lower()
     return f"{name_clean}@{company_clean}.com"
 
 def generate_birthdate():
