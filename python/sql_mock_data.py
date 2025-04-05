@@ -20,6 +20,8 @@ random.seed(42)
 # List of departments
 departments = ['Sales', 'IT', 'Human Resources', 'Marketing', 'Finance', 'Operations']
 
+company = fake.company()
+
 # Sets for uniqueness
 unique_names = set()
 unique_phones = set()
@@ -39,10 +41,11 @@ def get_unique_phone():
     unique_phones.add(phone)
     return phone
 
-def generate_email(name, department):
+def generate_email(name, department, company):
     name_clean = unidecode.unidecode(name.replace(" ", "").lower())
     department_clean = department.replace(" ", "").lower()
-    return f"{name_clean}@{department_clean}.com"
+    company_clean = company.replace(" ", "").lower()
+    return f"{name_clean}@{department_clean}_{company_clean}.com"
 
 def generate_birthdate():
     return fake.date_of_birth(minimum_age=30, maximum_age=50)
@@ -94,7 +97,7 @@ df = spark.range(1, records + 1).toDF("id") \
 df = df.withColumn("termination_date", udf_generate_termination_date(col("hire_date")))
 
 # Save to CSV
-df.repartition(1).write.csv("./data/temp_employees/", header=True, mode="overwrite")
+df.repartition(12).write.csv("./data/temp_employees/", header=True, mode="overwrite")
 
 # Rename part file to desired name
 temp_dir = "./data/temp_employees/"
@@ -108,7 +111,7 @@ for filename in os.listdir(temp_dir):
 
 shutil.rmtree(temp_dir)  # Cleanup _SUCCESS and temp dir
 
-df.show()
+df.show(5)
 
 print("File 'employees.csv' successfully generated.")
 
