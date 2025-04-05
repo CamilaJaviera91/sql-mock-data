@@ -1,10 +1,9 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import udf, col, when
+from pyspark.sql.functions import udf, col
 from pyspark.sql.types import StringType, FloatType, DateType
 import random
 import unidecode
 from faker import Faker
-from datetime import date
 
 # Create Spark session
 spark = SparkSession.builder \
@@ -12,7 +11,7 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Initialize Faker
-fake = Faker("en_US")
+fake = Faker("es_CL")
 Faker.seed(42)
 random.seed(42)
 
@@ -46,11 +45,17 @@ def generate_email(name, department):
 def generate_birthdate():
     return fake.date_of_birth(minimum_age=30, maximum_age=50)
 
+def generate_city():
+    return fake.city()
+
 def generate_hiredate():
     return fake.date_between(start_date="-5y", end_date="today")
 
 def generate_salary():
     return round(random.uniform(30000, 50000), 2)
+
+def generate_department():
+    return fake.random_choices(departments)
 
 def generate_termination_date(hire_date):
     """ Assigns a termination date to approximately 30% of employees. """
@@ -63,8 +68,10 @@ udf_get_unique_name = udf(get_unique_name, StringType())
 udf_get_unique_phone = udf(get_unique_phone, StringType())
 udf_generate_email = udf(generate_email, StringType())
 udf_generate_birthdate = udf(generate_birthdate, DateType())
+udf_generate_city = udf(generate_city, StringType())
 udf_generate_hiredate = udf(generate_hiredate, DateType())
 udf_generate_salary = udf(generate_salary, FloatType())
+udf_generate_department = udf(generate_department, StringType( ))
 udf_generate_termination_date = udf(generate_termination_date, DateType())
 
 # Number of records to generate
@@ -74,11 +81,11 @@ records = 1_000_000
 df = spark.range(1, records + 1).toDF("id") \
     .withColumn("name", udf_get_unique_name()) \
     .withColumn("date_birth", udf_generate_birthdate()) \
-    .withColumn("department", udf_get_unique_name()) \
+    .withColumn("department", udf_generate_department()) \
     .withColumn("email", udf_generate_email("name", "department")) \
     .withColumn("phonenumber", udf_get_unique_phone()) \
     .withColumn("yearly_salary", udf_generate_salary()) \
-    .withColumn("city", udf_get_unique_name()) \
+    .withColumn("city", udf_generate_city()) \
     .withColumn("hire_date", udf_generate_hiredate())
 
 # Add termination date based on hire date
