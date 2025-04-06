@@ -75,8 +75,27 @@ SELECT * FROM employees WHERE department = 'HR';
 
     - CREATE
     - ALTER
-    DROP
+    - DROP
 
+4. Data Control: SQL allows you to control access to the data.
+
+    - GRANT
+    - REVOKE
+
+5. Transaction Control: Manage multiple steps as a single unit.
+
+    - BEGIN
+    - COMMIT
+    - ROLLBACK
+
+6. Filtering and Sorting:
+    
+    - WHERE
+    - ORDER BY
+    - GROUP BY
+    - HAVING
+
+7. 
 ---
 
 # 🛠️ Code Explanation
