@@ -95,7 +95,14 @@ SELECT * FROM employees WHERE department = 'HR';
     - GROUP BY
     - HAVING
 
-7. 
+7. Joins: Combine data from multiple tables.
+
+8. Built-in Functions: SQL includes powerful functions for calculations, text handling, dates, etc.
+
+9. Standardized Language: SQL is used across most relational database systems (like PostgreSQL, MySQL, SQL Server, etc.), with only slight differences.
+
+10. Declarative Nature: You tell SQL what you want, not how to do it. The database figures out the best way.
+
 ---
 
 # 🛠️ Code Explanation
