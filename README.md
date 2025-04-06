@@ -38,6 +38,10 @@
 - Can be memory-intensive.
 - Complex configuration for cluster environments.
 
+# 🗃️ What's SQL (Structured Query Language)
+
+- SQL is how we read, write, and manage data stored in databases.
+
 ## 🔧 Install pyspark
 1. Install via pip
 
