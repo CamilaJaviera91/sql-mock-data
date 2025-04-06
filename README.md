@@ -58,6 +58,25 @@ python3 -c "import pyspark; print(pyspark.__version__)"
 
 - SQL is how we read, write, and manage data stored in databases.
 
+## 🔑 Key Features:
+
+1. Data Querying: You can retrieve exactly the data you need using the SELECT statement.
+```
+SELECT * FROM employees WHERE department = 'HR';
+```
+
+2.Data Manipulation: SQL lets you insert, update, or delete records.
+
+    - INSERT
+    - UPDATE
+    - DELETE
+
+3. Data Definition: You can create or change the structure of tables and databases.
+
+    - CREATE
+    - ALTER
+    DROP
+
 ---
 
 # 🛠️ Code Explanation
