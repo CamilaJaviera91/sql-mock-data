@@ -1,6 +1,7 @@
 from pyspark.sql import functions as F
 from pyspark.sql import SparkSession
 import logging
+import matplotlib.pyplot as plt
 
 def mean_age(spark):
 
@@ -16,6 +17,19 @@ def mean_age(spark):
 
     # Show descriptive statistics
     df_age.select("age").summary("count", "min", "max", "mean").show()
+
+    # Convert the age column to Pandas for plotting
+    ages_pd = df_age.select("age").dropna().toPandas()
+
+    # Histogram with Matplotlib
+    plt.figure(figsize=(10, 6))
+    plt.hist(ages_pd["age"], bins=30, color='skyblue', edgecolor='black')
+    plt.title("Employee Age Distribution")
+    plt.xlabel("Age")
+    plt.ylabel("Frequency")
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
 
 if __name__ == "__main__":
     
