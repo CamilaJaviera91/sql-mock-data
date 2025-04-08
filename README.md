@@ -150,6 +150,18 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ### 📖 Explanation of the Code:
 
+- This script:
+
+    - Creates 1 million fake employee records
+
+    - Each with realistic personal and job data
+
+    - Saves them across 12 cleanly named CSV files
+
+    - Makes sure names and phones are unique
+
+    - Can be scaled easily or reused for testing, demos, or training
+
 ### ✅ Example Output:
 
 
