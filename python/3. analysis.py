@@ -57,6 +57,36 @@ def mean_age(df):
     plt.tight_layout()
     plt.show()
 
+def departments(df):
+
+    # Count employees by city
+    df.groupBy("city").count().orderBy("count", ascending=False).show(5)
+
+    # Count employees by department
+    df.groupBy("department").count().orderBy("count", ascending=False).show(5)
+
+    # Employees who left (termination_date is not null)
+    terminated = df.filter(F.col("termination_date").isNotNull())
+
+    # Turnover by city
+    terminated.groupBy("city").count().orderBy("count", ascending=False).show(5)
+
+    # Turnover by department
+    terminated.groupBy("department").count().orderBy("count", ascending=False).show(5)
+
+    # Total employees per department
+    total_by_dept = df.groupBy( "department").count().withColumnRenamed("count", "total_employees")
+
+    # Terminations per department
+    terminated_by_dept = terminated.groupBy("department").count().withColumnRenamed("count", "terminated_employees")
+
+    # Join both DataFrames
+    rotation_rate = total_by_dept.join(terminated_by_dept, on="department", how="left") \
+        .fillna(0) \
+        .withColumn("turnover_rate", F.round(F.col("terminated_employees") / F.col("total_employees") * 100, 2))
+
+    rotation_rate.orderBy("turnover_rate", ascending=False).show()
+
 if __name__ == "__main__":
     
     # Create a Spark session
@@ -79,3 +109,5 @@ if __name__ == "__main__":
 
     # Pass spark session as parameter
     mean_age(df)
+
+    departments(df)
