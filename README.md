@@ -148,11 +148,14 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ### 🔧 Install libraries that we are going to need:
 
-| Library | Description                                   | Installation Command    |
-|---------|-----------------------------------------------|-------------------------|
-|PySpark  |	Apache Spark Python API (for big data)        | `pip install pyspark`   |
-|Faker	  | Fake data generator (used for names, etc.)    | `pip install faker`     |
-|unidecode|	Removes accents from characters (e.g., é → e) | `pip install unidecode` |
+| Library   | Description                                                   | Installation Command    |
+|-----------|---------------------------------------------------------------|-------------------------|
+|PySpark    | Apache Spark Python API (for big data)                        | `pip install pyspark`   |
+|Faker	    | Fake data generator (used for names, etc.)                    | `pip install faker`     |
+| unidecode | Removes accents from characters (e.g., é → e)                 | `pip install unidecode` |
+| random    | For generating random numbers, probabilities, selections, etc |  (built-in)             |
+| os        | For cross-platform file handling and directory management     |  (built-in)             |
+| shutil    | For managing file system operations in automation scripts     |  (built-in)             |
 
 ### 📖 Explanation of the Code:
 
