@@ -190,6 +190,16 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ### 📖 Explanation of the Code:
 
+- This script:
+
+    - Finds all CSV files in the ./data/ folder using glob.
+
+    - Reads and combines all the CSVs into a single pandas DataFrame.
+
+    - Creates a connection to a PostgreSQL database using SQLAlchemy.
+
+    - Uploads the combined data to the employees table in the database.
+
 ### ✅ Example Output:
 
 
