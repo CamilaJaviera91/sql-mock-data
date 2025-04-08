@@ -143,3 +143,36 @@ SELECT * FROM employees WHERE department = 'HR';
 ---
 
 # 🛠️ Code Explanation
+
+## 👩‍💻 1. sql_mock_data.py
+
+### 🔧 Install libraries that we are going to need:
+
+### 📖 Explanation of the Code:
+
+### ✅ Example Output:
+
+
+---
+
+## 👩‍💻 2. insert.py
+
+### 🔧 Install libraries that we are going to need:
+
+### 📖 Explanation of the Code:
+
+### ✅ Example Output:
+
+
+---
+
+## 👩‍💻 3. analysis.py
+
+### 🔧 Install libraries that we are going to need:
+
+### 📖 Explanation of the Code:
+
+### ✅ Example Output:
+
+
+---
