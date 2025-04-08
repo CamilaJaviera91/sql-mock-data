@@ -202,7 +202,7 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ### ✅ Example Output:
 
-
+<img src="./images/pic3.png" alt="mock_data" width="500"/>
 ---
 
 ## 👩‍💻 3. analysis.py
