@@ -170,6 +170,7 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ### ✅ Example Output:
 
+<img src="./images/pic2.png" alt="mock_data" width="500"/>
 
 ---
 
