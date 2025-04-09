@@ -209,6 +209,12 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ### 🔧 Install libraries that we are going to need:
 
+| Library            | Description                                         | Installation Command     |
+|-------------------|------------------------------------------------------|--------------------------|
+| PySpark           | Apache Spark Python API (for big data)               | `pip install pyspark`    |
+| matplotlib.pyplot | To create visualizations (histograms and bar charts) | `pip install matplotlib` |
+| logging           | To track execution flow and info messages            | (built-in)               |
+
 ### 📖 Explanation of the Code:
 
 - This script:
