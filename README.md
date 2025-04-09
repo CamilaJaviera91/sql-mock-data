@@ -231,5 +231,14 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ### ✅ Example Output:
 
+<img src="./images/pic4.png" alt="mock_data" width="500"/>
+
+<br>
+
+<img src="./images/pic5.png" alt="mock_data" width="500"/>
+
+<br>
+
+<img src="./images/pic6.png" alt="mock_data" width="500"/>
 
 ---
