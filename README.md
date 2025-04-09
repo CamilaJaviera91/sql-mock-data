@@ -211,6 +211,18 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ### 📖 Explanation of the Code:
 
+- This script:
+
+    - Reads multiple CSV files using PySpark and combines them into a single DataFrame.
+
+    - Calculates the age of each employee based on their date of birth and shows basic statistics.
+
+    - Generates age distribution plots using matplotlib (histogram + bar chart with labels).
+
+    - Performs department and city analysis, including counts and turnover (employees who left).
+
+    - Logs activity and minimizes Spark output verbosity for clarity.
+
 ### ✅ Example Output:
 
 
