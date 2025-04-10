@@ -58,14 +58,15 @@ def mean_age(df):
     plt.show()
 
 def departments(df):
-
+    
     # Count employees by city
     df.groupBy("city").count().orderBy("count", ascending=False).show(5)
 
     # Count employees by department
-    df.groupBy("department").count().orderBy("count", ascending=False).show(5)
+    department_counts = df.groupBy("department").count().orderBy("count", ascending=False)
+    department_counts.show(5)
 
-    # Employees who left (termination_date is not null)
+    # Employees who left
     terminated = df.filter(F.col("termination_date").isNotNull())
 
     # Turnover by city
@@ -75,17 +76,37 @@ def departments(df):
     terminated.groupBy("department").count().orderBy("count", ascending=False).show(5)
 
     # Total employees per department
-    total_by_dept = df.groupBy( "department").count().withColumnRenamed("count", "total_employees")
+    total_by_dept = df.groupBy("department").count().withColumnRenamed("count", "total_employees")
 
     # Terminations per department
     terminated_by_dept = terminated.groupBy("department").count().withColumnRenamed("count", "terminated_employees")
 
-    # Join both DataFrames
+    # Join and calculate turnover
     rotation_rate = total_by_dept.join(terminated_by_dept, on="department", how="left") \
         .fillna(0) \
         .withColumn("turnover_rate", F.round(F.col("terminated_employees") / F.col("total_employees") * 100, 2))
 
     rotation_rate.orderBy("turnover_rate", ascending=False).show()
+
+    # Convert to pandas for plotting
+    pandas_df = rotation_rate.orderBy("turnover_rate", ascending=False).toPandas()
+
+    # Plot turnover rate by department
+    plt.figure(figsize=(14, 6))
+    bars = plt.bar(pandas_df["department"], pandas_df["turnover_rate"], color='skyblue', edgecolor='black')
+
+    for bar in bars:
+        height = bar.get_height()
+        if height > 0:
+            plt.text(bar.get_x() + bar.get_width() / 2, height + 0.5, f"{height}%", ha='center', va='bottom', fontsize=8)
+
+    plt.title("Turnover Rate by Department")
+    plt.xlabel("Department")
+    plt.ylabel("Turnover Rate (%)")
+    plt.xticks(rotation=45)
+    plt.grid(axis='y')
+    plt.tight_layout()
+    plt.show()
 
 if __name__ == "__main__":
     
