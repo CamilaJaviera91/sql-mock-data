@@ -68,3 +68,5 @@ def query_city():
         cursor.close()
         con.close()
         print("Connection closed successfully.")
+
+query_city()
