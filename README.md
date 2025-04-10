@@ -244,4 +244,9 @@ SELECT * FROM employees WHERE department = 'HR';
 <br>
 
 <img src="./images/pic7.png" alt="mock_data" width="500"/>
+
+<br>
+
+<img src="./images/pic8.png" alt="mock_data" width="500"/>
+
 ---
