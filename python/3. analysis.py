@@ -57,9 +57,6 @@ def mean_age(df):
     plt.tight_layout()
     plt.show()
 
-import matplotlib.pyplot as plt
-from pyspark.sql import functions as F
-
 def departments(df):
 
     # Count employees by city
