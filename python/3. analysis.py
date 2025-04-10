@@ -58,13 +58,13 @@ def mean_age(df):
     plt.show()
 
 def departments(df):
-    
+
     # Count employees by city
     df.groupBy("city").count().orderBy("count", ascending=False).show(5)
 
     # Count employees by department
     department_counts = df.groupBy("department").count().orderBy("count", ascending=False)
-    department_counts.show(5)
+    department_counts.show(6)
 
     # Employees who left
     terminated = df.filter(F.col("termination_date").isNotNull())
