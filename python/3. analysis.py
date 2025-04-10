@@ -70,10 +70,10 @@ def departments(df):
     terminated = df.filter(F.col("termination_date").isNotNull())
 
     # Turnover by city
-    terminated.groupBy("city").count().orderBy("count", ascending=False).show(5)
+    terminated.groupBy("city").count().orderBy("count", ascending=False).show(6)
 
     # Turnover by department
-    terminated.groupBy("department").count().orderBy("count", ascending=False).show(5)
+    terminated.groupBy("department").count().orderBy("count", ascending=False).show(6)
 
     # Total employees per department
     total_by_dept = df.groupBy("department").count().withColumnRenamed("count", "total_employees")
