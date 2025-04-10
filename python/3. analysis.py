@@ -57,6 +57,9 @@ def mean_age(df):
     plt.tight_layout()
     plt.show()
 
+import matplotlib.pyplot as plt
+from pyspark.sql import functions as F
+
 def departments(df):
 
     # Count employees by city
@@ -81,31 +84,47 @@ def departments(df):
     # Terminations per department
     terminated_by_dept = terminated.groupBy("department").count().withColumnRenamed("count", "terminated_employees")
 
-    # Join and calculate turnover
-    rotation_rate = total_by_dept.join(terminated_by_dept, on="department", how="left") \
+    # Join and calculate final employees
+    final_df = total_by_dept.join(terminated_by_dept, on="department", how="left") \
         .fillna(0) \
+        .withColumn("active_employees", F.col("total_employees") - F.col("terminated_employees")) \
         .withColumn("turnover_rate", F.round(F.col("terminated_employees") / F.col("total_employees") * 100, 2))
 
-    rotation_rate.orderBy("turnover_rate", ascending=False).show(6)
+    final_df.orderBy("turnover_rate", ascending=False).show(6)
 
     # Convert to pandas for plotting
-    pandas_df = rotation_rate.orderBy("turnover_rate", ascending=False).toPandas()
+    pandas_df = final_df.orderBy("turnover_rate", ascending=False).toPandas()
 
-    # Plot turnover rate by department
+    # Plot: Terminated vs Active employees per department
     plt.figure(figsize=(14, 6))
-    bars = plt.bar(pandas_df["department"], pandas_df["turnover_rate"], color='skyblue', edgecolor='black')
+    bar_width = 0.4
+    x = range(len(pandas_df["department"]))
 
-    for bar in bars:
+    # Active bars
+    active_bars = plt.bar(x, pandas_df["active_employees"], width=bar_width, label='Active Employees', color='skyblue')
+    
+    # Terminated bars
+    terminated_bars = plt.bar([i + bar_width for i in x], pandas_df["terminated_employees"], width=bar_width, label='Terminated Employees', color='salmon')
+
+    # Add values on top of bars
+    for i, bar in enumerate(active_bars):
         height = bar.get_height()
         if height > 0:
-            plt.text(bar.get_x() + bar.get_width() / 2, height + 0.5, f"{height}%", ha='center', va='bottom', fontsize=8)
+            plt.text(bar.get_x() + bar.get_width() / 2, height + 0.5, str(int(height)), ha='center', va='bottom', fontsize=8)
 
-    plt.title("Turnover Rate by Department")
+    for i, bar in enumerate(terminated_bars):
+        height = bar.get_height()
+        if height > 0:
+            plt.text(bar.get_x() + bar.get_width() / 2, height + 0.5, str(int(height)), ha='center', va='bottom', fontsize=8)
+
+
+    plt.xticks([i + bar_width / 2 for i in x], pandas_df["department"], rotation=45)
     plt.xlabel("Department")
-    plt.ylabel("Turnover Rate (%)")
-    plt.xticks(rotation=45)
-    plt.grid(axis='y')
+    plt.ylabel("Number of Employees")
+    plt.title("Active vs Terminated Employees by Department")
+    plt.legend()
     plt.tight_layout()
+    plt.grid(axis='y')
     plt.show()
 
 if __name__ == "__main__":
