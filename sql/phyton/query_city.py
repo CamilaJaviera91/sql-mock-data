@@ -27,12 +27,26 @@ def query_city():
 
         # Execute the SQL query to retrieve the sales data
         cursor.execute('''
-            select 
-                employees.city as City, 
-                ARRAY_AGG(employees."name") as Employees
-            from employees
-            group by employees.city
-            order by employees.city;
+            SELECT 
+                City,
+                Total_Employees,
+                Turnover_rate
+            FROM (
+                SELECT 
+                    employees.city AS City,
+                    (COUNT(employees."name") - COUNT(employees.termination_date)) AS Total_Employees,
+                    (ROUND(
+                        CASE 
+                            WHEN COUNT(employees."name") = 0 THEN 0
+                            ELSE COUNT(employees.termination_date) * 1.0 / COUNT(employees."name")
+                        END, 
+                        3
+                    ) * 100) AS Turnover_rate
+                FROM employees
+                GROUP BY employees.city
+            ) AS subquery
+            ORDER BY Total_Employees desc
+            LIMIT 10;
         ''')
 
         records = cursor.fetchall()  # Fetch all the results
