@@ -86,7 +86,7 @@ def departments(df):
         .fillna(0) \
         .withColumn("turnover_rate", F.round(F.col("terminated_employees") / F.col("total_employees") * 100, 2))
 
-    rotation_rate.orderBy("turnover_rate", ascending=False).show()
+    rotation_rate.orderBy("turnover_rate", ascending=False).show(6)
 
     # Convert to pandas for plotting
     pandas_df = rotation_rate.orderBy("turnover_rate", ascending=False).toPandas()
