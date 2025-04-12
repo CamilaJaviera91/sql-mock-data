@@ -9,7 +9,8 @@ import psycopg2
 import locale
 import pandas as pd
 
-def query_city():
+def by_city():
+
     # Set the locale to Spanish (Spain) to ensure proper formatting
     try:
         locale.setlocale(locale.LC_ALL, 'es_ES.UTF-8')
@@ -27,27 +28,24 @@ def query_city():
 
         # Execute the SQL query to retrieve the sales data
         cursor.execute('''
-            SELECT 
-                City,
-                Total_Employees,
-                Turnover_rate
-            FROM (
-                SELECT 
-                    employees.city AS City,
-                    (COUNT(employees."name") - COUNT(employees.termination_date)) AS Total_Employees,
-                    (ROUND(
-                        CASE 
-                            WHEN COUNT(employees."name") = 0 THEN 0
-                            ELSE COUNT(employees.termination_date) * 1.0 / COUNT(employees."name")
-                        END, 
-                        3
-                    ) * 100) AS Turnover_rate
-                FROM employees
-                GROUP BY employees.city
-            ) AS subquery
-            ORDER BY Total_Employees desc
-            LIMIT 10;
-        ''')
+            with by_city as (
+                            select 
+                                e.city,
+                                count(e."name") as employees,
+                                count(e.termination_date) as terminated,
+                                (count(e."name") - count(e.termination_date)) as active_employees
+                            from employees e 
+                            group by e.city
+                        )
+                            select 
+                                ec.city, 
+                                ec.employees, 
+                                ec.terminated, 
+                                ec.active_employees,
+                                round((ec.terminated * 1.0/ ec.employees), 2) as turnover_rate
+                            from employees_by_city ec
+                            limit 10;
+                       ''')
 
         records = cursor.fetchall()  # Fetch all the results
 
@@ -69,4 +67,7 @@ def query_city():
         con.close()
         print("Connection closed successfully.")
 
-query_city()
+
+if __name__== "__main__":
+    
+    by_city()
