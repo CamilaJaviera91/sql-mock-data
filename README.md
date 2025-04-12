@@ -249,7 +249,20 @@ SELECT * FROM employees WHERE department = 'HR';
 
 <img src="./images/pic8.png" alt="mock_data" width="500"/>
 
-<br>
+---
+
+## 👩‍💻 queries.py
+
+### 🔧 Install libraries that we are going to need:
+
+| Library            | Description                                          | Installation Command     |
+|--------------------|------------------------------------------------------|--------------------------|
+
+### 📖 Explanation of the Code:
+
+
+
+### ✅ Example Output:
 
 <img src="./images/pic9.png" alt="mock_data" width="500"/>
 
