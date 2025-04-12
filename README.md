@@ -209,11 +209,11 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ### 🔧 Install libraries that we are going to need:
 
-| Library            | Description                                         | Installation Command     |
-|-------------------|------------------------------------------------------|--------------------------|
-| PySpark           | Apache Spark Python API (for big data)               | `pip install pyspark`    |
-| matplotlib.pyplot | To create visualizations (histograms and bar charts) | `pip install matplotlib` |
-| logging           | To track execution flow and info messages            | (built-in)               |
+| Library            | Description                                          | Installation Command     |
+|--------------------|------------------------------------------------------|--------------------------|
+| PySpark            | Apache Spark Python API (for big data)               | `pip install pyspark`    |
+| matplotlib.pyplot  | To create visualizations (histograms and bar charts) | `pip install matplotlib` |
+| logging            | To track execution flow and info messages            | (built-in)               |
 
 ### 📖 Explanation of the Code:
 
@@ -255,8 +255,13 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ### 🔧 Install libraries that we are going to need:
 
-| Library            | Description                                          | Installation Command     |
-|--------------------|------------------------------------------------------|--------------------------|
+| Library    | Description                                    | Installation Command             |
+|------------|------------------------------------------------|----------------------------------|
+| psycopg2   | PostgreSQL driver required by SQLAlchemy       | `pip install psycopg2-binary`    |
+| pandas     | For working with CSVs and DataFrames           | `pip install pandas`             |
+| connection | Custom local module to establish DB connection | Make sure `connection.py` exists |
+| locale     | Built-in module for localization/formatting    | (built-in)                       |
+| sys        | Built-in module to modify the system path      | (built-in)                       |
 
 ### 📖 Explanation of the Code:
 
