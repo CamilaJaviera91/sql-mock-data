@@ -111,6 +111,28 @@ def by_age() -> pd.DataFrame | None:
     '''
     return run_query(query)
 
+def salary_by_city() -> pd.DataFrame | None:
+    """Query turnover data by age."""
+    query = '''
+        WITH salary AS (
+            SELECT 
+                e.city,
+                ROUND(SUM(e.yearly_salary)/12) AS total_salary,
+                COUNT(e."name") AS employees
+            FROM employees e 
+            WHERE e.termination_date IS NOT NULL
+            GROUP BY e.city
+        )
+        SELECT 
+            s.city,
+            s.employees,
+            s.total_salary
+        FROM salary s
+        ORDER BY s.total_salary DESC
+        LIMIT 10;
+    '''
+    return run_query(query)
+
 def main():
     set_locale()
     print("=== Turnover by City ===")
@@ -119,6 +141,8 @@ def main():
     by_department()
     print("\n=== Turnover by Age ===")
     by_age()
+    print("\n=== Salary by city ===")
+    salary_by_city()
 
 if __name__ == "__main__":
     main()
