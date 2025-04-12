@@ -1,73 +1,124 @@
-# Import the connection function from the 'connection' file
 import sys
 sys.path.append('./sql/python/')
 
 from connection import connection
-
-# Import necessary libraries
 import psycopg2
 import locale
 import pandas as pd
 
-def by_city():
-
-    # Set the locale to Spanish (Spain) to ensure proper formatting
+def set_locale():
+    """Set the locale to Spanish (Spain) for formatting."""
     try:
         locale.setlocale(locale.LC_ALL, 'es_ES.UTF-8')
     except locale.Error:
-        print("Error: Could not establish the regional settings.")
-    
-    # Establish a connection using the connection function from 'connection.py'
+        print("Warning: Could not establish the regional settings (locale).")
+
+def get_connection():
+    """Establish and return a database connection."""
     con = connection()
     if con is None:
         print("Error: Could not establish a connection to the database.")
-        return
+    return con
+
+def run_query(query: str) -> pd.DataFrame | None:
+    """Execute a SQL query and return the results as a DataFrame."""
+    con = get_connection()
+    if not con:
+        return None
 
     try:
-        cursor = con.cursor()  # Create a cursor to interact with the database
-
-        # Execute the SQL query to retrieve the sales data
-        cursor.execute('''
-            with by_city as (
-                            select 
-                                e.city,
-                                count(e."name") as employees,
-                                count(e.termination_date) as terminated,
-                                (count(e."name") - count(e.termination_date)) as active_employees
-                            from employees e 
-                            group by e.city
-                        )
-                            select 
-                                ec.city, 
-                                ec.employees, 
-                                ec.terminated, 
-                                ec.active_employees,
-                                round((ec.terminated * 1.0/ ec.employees), 2) as turnover_rate
-                            from employees_by_city ec
-                            limit 10;
-                       ''')
-
-        records = cursor.fetchall()  # Fetch all the results
-
-        # Convert results into a DataFrame for better visualization.
-        columns = [desc[0] for desc in cursor.description]
-        df = pd.DataFrame(records, columns=columns)
-
-        print(df)
-
-        return df
-
+        with con.cursor() as cursor:
+            cursor.execute(query)
+            records = cursor.fetchall()
+            columns = [desc[0] for desc in cursor.description]
+            df = pd.DataFrame(records, columns=columns)
+            print(df)
+            return df
     except psycopg2.Error as e:
         print(f"Error executing the query: {e}")
         return None
-
     finally:
-        # Close cursor and connection safely
-        cursor.close()
         con.close()
         print("Connection closed successfully.")
 
+def by_city() -> pd.DataFrame | None:
+    """Query turnover data by city."""
+    query = '''
+        WITH by_city AS (
+            SELECT 
+                e.city,
+                COUNT(e."name") AS employees,
+                COUNT(e.termination_date) AS terminated,
+                (COUNT(e."name") - COUNT(e.termination_date)) AS active_employees
+            FROM employees e 
+            GROUP BY e.city
+        )
+        SELECT 
+            bc.city, 
+            bc.employees, 
+            bc.terminated, 
+            bc.active_employees,
+            ROUND((bc.terminated * 1.0 / bc.employees), 2) AS turnover_rate
+        FROM by_city bc
+        ORDER BY bc.active_employees DESC
+        LIMIT 10;
+    '''
+    return run_query(query)
 
-if __name__== "__main__":
-    
+def by_department() -> pd.DataFrame | None:
+    """Query turnover data by department."""
+    query = '''
+        WITH by_department AS (
+            SELECT 
+                e.department,
+                COUNT(e."name") AS employees,
+                COUNT(e.termination_date) AS terminated,
+                (COUNT(e."name") - COUNT(e.termination_date)) AS active_employees
+            FROM employees e 
+            GROUP BY e.department
+        )
+        SELECT 
+            bd.department, 
+            bd.employees, 
+            bd.terminated, 
+            bd.active_employees,
+            ROUND((bd.terminated * 1.0 / bd.employees), 2) AS turnover_rate
+        FROM by_department bd
+        ORDER BY bd.active_employees DESC;
+    '''
+    return run_query(query)
+
+def by_age() -> pd.DataFrame | None:
+    """Query turnover data by age."""
+    query = '''
+        WITH by_age AS (
+            SELECT 
+                EXTRACT(YEAR FROM NOW()::DATE) - EXTRACT(YEAR FROM e.date_birth::DATE) AS age,
+                COUNT(e.name) AS employees,
+                COUNT(e.termination_date) AS terminated,
+                COUNT(e.name) - COUNT(e.termination_date) AS active_employees
+            FROM employees e 
+            GROUP BY EXTRACT(YEAR FROM e.date_birth::DATE)
+        )
+        SELECT 
+            ba.age, 
+            ba.employees, 
+            ba.terminated, 
+            ba.active_employees,
+            ROUND(ba.terminated * 1.0 / ba.employees, 2) AS turnover_rate
+        FROM by_age ba
+        ORDER BY ba.active_employees desc;
+    '''
+    return run_query(query)
+
+def main():
+    set_locale()
+    print("=== Turnover by City ===")
     by_city()
+    print("\n=== Turnover by Department ===")
+    by_department()
+    print("\n=== Turnover by Age ===")
+    by_age()
+
+if __name__ == "__main__":
+    main()
