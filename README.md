@@ -253,18 +253,6 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ## 👩‍💻 queries.py
 
-- This script:
-
-    - Uses a custom connection() function to establish a PostgreSQL connection.
-
-    - Tries to set locale to Spanish (es_ES.UTF-8) for formatting purposes.
-
-    - Runs SQL queries using run_query(), returning results as a pandas DataFrame.
-
-    - Includes 3 analysis (more to add) functions by city, department, and age, calculating turnover rates.
-
-    - Executes all analyses and prints them when the script is run directly.
-
 ### 🔧 Install libraries that we are going to need:
 
 | Library    | Description                                    | Installation Command             |
@@ -277,7 +265,17 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ### 📖 Explanation of the Code:
 
+- This script:
 
+    - Uses a custom connection() function to establish a PostgreSQL connection.
+
+    - Tries to set locale to Spanish (es_ES.UTF-8) for formatting purposes.
+
+    - Runs SQL queries using run_query(), returning results as a pandas DataFrame.
+
+    - Includes 3 analysis (more to add) functions by city, department, and age, calculating turnover rates.
+
+    - Executes all analyses and prints them when the script is run directly.
 
 ### ✅ Example Output:
 
