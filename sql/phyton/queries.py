@@ -88,12 +88,37 @@ def by_department() -> pd.DataFrame | None:
     '''
     return run_query(query)
 
+def by_age() -> pd.DataFrame | None:
+    """Query turnover data by age."""
+    query = '''
+        WITH by_age AS (
+            SELECT 
+                EXTRACT(YEAR FROM NOW()::DATE) - EXTRACT(YEAR FROM e.date_birth::DATE) AS age,
+                COUNT(e.name) AS employees,
+                COUNT(e.termination_date) AS terminated,
+                COUNT(e.name) - COUNT(e.termination_date) AS active_employees
+            FROM employees e 
+            GROUP BY EXTRACT(YEAR FROM e.date_birth::DATE)
+        )
+        SELECT 
+            ba.age, 
+            ba.employees, 
+            ba.terminated, 
+            ba.active_employees,
+            ROUND(ba.terminated * 1.0 / ba.employees, 2) AS turnover_rate
+        FROM by_age ba
+        ORDER BY ba.active_employees desc;
+    '''
+    return run_query(query)
+
 def main():
     set_locale()
     print("=== Turnover by City ===")
     by_city()
     print("\n=== Turnover by Department ===")
     by_department()
+    print("\n=== Turnover by Age ===")
+    by_age()
 
 if __name__ == "__main__":
     main()
