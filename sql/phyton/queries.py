@@ -111,6 +111,70 @@ def by_age() -> pd.DataFrame | None:
     '''
     return run_query(query)
 
+def salary_by_city() -> pd.DataFrame | None:
+    """Query salary by city."""
+    query = '''
+        WITH salary AS (
+            SELECT 
+                e.city,
+                ROUND(SUM(e.yearly_salary)/12) AS total_salary,
+                COUNT(e."name") AS employees
+            FROM employees e 
+            WHERE e.termination_date IS NOT NULL
+            GROUP BY e.city
+        )
+        SELECT 
+            s.city,
+            s.employees,
+            s.total_salary
+        FROM salary s
+        ORDER BY s.total_salary DESC
+        LIMIT 10;
+    '''
+    return run_query(query)
+
+def salary_by_department() -> pd.DataFrame | None:
+    """Query salary by department."""
+    query = '''
+        WITH salary AS (
+            SELECT 
+                e.department,
+                ROUND(SUM(e.yearly_salary)/12) AS total_salary,
+                COUNT(e."name") AS employees
+            FROM employees e 
+            WHERE e.termination_date IS NOT NULL
+            GROUP BY e.department
+        )
+        SELECT 
+            s.department,
+            s.employees,
+            s.total_salary
+        FROM salary s
+        ORDER BY s.total_salary DESC;
+    '''
+    return run_query(query)
+
+def salary_by_age() -> pd.DataFrame | None:
+    """Query salary by age."""
+    query = '''
+        WITH salary AS (
+            SELECT 
+                EXTRACT(YEAR FROM NOW()::DATE) - EXTRACT(YEAR FROM e.date_birth::DATE) AS age,
+                ROUND(SUM(e.yearly_salary)/12) AS total_salary,
+                COUNT(e."name") AS employees
+            FROM employees e 
+            WHERE e.termination_date IS NOT NULL
+            GROUP BY EXTRACT(YEAR FROM NOW()::DATE) - EXTRACT(YEAR FROM e.date_birth::DATE)
+        )
+        SELECT 
+            s.age,
+            s.employees,
+            s.total_salary
+        FROM salary s
+        ORDER BY s.total_salary DESC;
+    '''
+    return run_query(query)
+
 def main():
     set_locale()
     print("=== Turnover by City ===")
@@ -119,6 +183,12 @@ def main():
     by_department()
     print("\n=== Turnover by Age ===")
     by_age()
+    print("\n=== Salary by City ===")
+    salary_by_city()
+    print("\n=== Salary by Department ===")
+    salary_by_department()
+    print("\n=== Salary by Age ===")
+    salary_by_age()
 
 if __name__ == "__main__":
     main()
