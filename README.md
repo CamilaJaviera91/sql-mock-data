@@ -273,7 +273,7 @@ SELECT * FROM employees WHERE department = 'HR';
 
     - Runs SQL queries using run_query(), returning results as a pandas DataFrame.
 
-    - Includes 3 analysis (more to add) functions by city, department, and age, calculating turnover rates.
+    - Includes 6 analysis (more to add) functions by city, department, and age, calculating turnover rates and salaries for active employees.
 
     - Executes all analyses and prints them when the script is run directly.
 
