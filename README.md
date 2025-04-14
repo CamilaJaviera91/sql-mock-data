@@ -134,15 +134,15 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ## 🔑 Key Features:
 
-1. Containers: Run apps in isolated environments.
+1. **Containers:** Run apps in isolated environments.
 
-2. Images: Blueprints for containers (created using a Dockerfile).
+2. **Images:** Blueprints for containers (created using a Dockerfile).
 
-3. Portability: Works the same on any system with Docker.
+3. **Portability:** Works the same on any system with Docker.
 
-4. Speed: Starts apps quickly.
+4. **Speed:** Starts apps quickly.
 
-5. Docker Hub: A place to share and download app images.
+5. **Docker Hub:** A place to share and download app images.
 
 ## ✅ Pros — ❌ Cons
 
