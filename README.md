@@ -33,19 +33,13 @@
 
 7. DataFrames & Datasets: High-level APIs for structured data with SQL-like operations.
 
-## ✅ Pros
+## ✅ Pros — ❌ Cons
 
-- Handles massive datasets efficiently.
-
-- Compatible with many tools (Hadoop, Cassandra, etc.).
-
-- Built-in libraries for SQL, Machine Learning, Streaming, Graph Processing.
-
-## ❌ Cons
-
-- Can be memory-intensive.
-
-- Complex configuration for cluster environments.
+| Pros                                                  | Cons                                            |
+|-------------------------------------------------------|-------------------------------------------------|
+| Handles massive datasets efficiently.                 | Can be memory-intensive.                        |
+| Compatible with many tools (Hadoop, Cassandra, etc.). | Complex configuration for cluster environments. |
+| Built-in libraries for SQL, Machine Learning.         |                                                 |
 
 ## 🔧 Install pyspark
 
