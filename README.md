@@ -15,23 +15,23 @@
 
 ## 🔑 Key Features:
 
-1. Distributed Computing: Processes large datasets across a cluster of computers for scalability.
+1. **Distributed Computing:** Processes large datasets across a cluster of computers for scalability.
 
-2. In-Memory Processing: Speeds up computation by reducing disk I/O.
+2. **In-Memory Processing:** Speeds up computation by reducing disk I/O.
 
-3. Lazy Evaluation: Operations are only executed when an action is triggered, optimizing performance.
+3. **Lazy Evaluation:** Operations are only executed when an action is triggered, optimizing performance.
 
-4. Rich Libraries:
-    - Spark SQL: Structured data processing (like SQL operations).
-    - MLlib: Machine learning library for scalable algorithms.
-    - GraphX: Graph processing (via RDD API).
-    - Spark Streaming: Real-time stream processing.
+4. **Rich Libraries:**
+    - **Spark SQL:** Structured data processing (like SQL operations).
+    - **MLlib:** Machine learning library for scalable algorithms.
+    - **GraphX:** Graph processing (via RDD API).
+    - **Spark Streaming:** Real-time stream processing.
 
-5. Compatibility: Works with Hadoop, HDFS, Hive, Cassandra, etc.
+5. **Compatibility:** Works with Hadoop, HDFS, Hive, Cassandra, etc.
 
-6. Resilient Distributed Datasets (RDDs): Low-level API for distributed data handling.
+6. **Resilient Distributed Datasets (RDDs):** Low-level API for distributed data handling.
 
-7. DataFrames & Datasets: High-level APIs for structured data with SQL-like operations.
+7. **DataFrames & Datasets:** High-level APIs for structured data with SQL-like operations.
 
 ## ✅ Pros — ❌ Cons
 
