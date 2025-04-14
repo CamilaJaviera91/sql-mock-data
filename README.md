@@ -189,12 +189,14 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ### 🔧 Install libraries that we are going to need:
 
-| Library    | Description                                | Installation Command          |
-|------------|--------------------------------------------|-------------------------------|
-| pandas     | For working with CSVs and DataFrames       | `pip install pandas`          |
-| sqlalchemy | Python SQL toolkit and ORM                 | `pip install sqlalchemy`      |
-| psycopg2   | PostgreSQL driver required by SQLAlchemy   | `pip install psycopg2-binary` |
-| glob	     | Standard library for file pattern matching |  (built-in)                   |
+| Library       | Description                                                | Installation Command          |
+|---------------|------------------------------------------------------------|-------------------------------|
+| pandas        | For working with CSVs and DataFrames.                      | `pip install pandas`          |
+| sqlalchemy    | Python SQL toolkit and ORM.                                | `pip install sqlalchemy`      |
+| psycopg2      | PostgreSQL driver required by SQLAlchemy.                  | `pip install psycopg2-binary` |
+| python-dotenv | helps you load environment variables from `.env` file.     | `pip install python-dotenv`   |
+| glob	        | Standard library for file pattern matching.                |  (built-in)                   |
+| os	        | For cross-platform file handling and directory management. |  (built-in)                   |
 
 ### 📖 Explanation of the Code:
 
