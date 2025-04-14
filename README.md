@@ -140,6 +140,18 @@ SELECT * FROM employees WHERE department = 'HR';
 
 - Performance Tuning Required
 
+# 🐳 What's Docker
+
+
+## 🔑 Key Features:
+
+
+## ✅ Pros
+
+
+## ❌ Cons
+
+
 ---
 
 # 🛠️ Code Explanation
