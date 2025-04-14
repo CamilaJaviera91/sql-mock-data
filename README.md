@@ -160,23 +160,13 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ## ✅ Pros & ❌ Cons
 
-| Pros                                      | Cons                    |
-|-------------------------------------------|-------------------------|
-| Works the same everywhere                 | `pip install pyspark`   |
-| Fast and lightweight.                     | `pip install pyspark`   |
-| Easy to share apps.                       | `pip install pyspark`   |
-| Good for automating deployments.          | `pip install pyspark`   |
-| Great for teams working together.         | `pip install pyspark`   |
-
-## ❌ Cons
-
-- Takes some time to learn.
-
-- Not ideal for apps that need a full operating system.
-
-- Security risks if not set up properly.
-
-- Managing data storage can be tricky.
+| Pros                              | Cons                                                  |
+|-----------------------------------|-------------------------------------------------------|
+| Works the same everywhere.        | Takes some time to learn.                             |
+| Fast and lightweight.             | Not ideal for apps that need a full operating system. |
+| Easy to share apps.               | Security risks if not set up properly.                |
+| Good for automating deployments.  | Managing data storage can be tricky.                  |
+| Great for teams working together. |                                                       |
 
 ---
 
