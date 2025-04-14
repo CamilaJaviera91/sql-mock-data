@@ -112,21 +112,17 @@ SELECT * FROM employees WHERE department = 'HR';
 
 10. Declarative Nature: You tell SQL what you want, not how to do it. The database figures out the best way.
 
-## ✅ Pros
+## ✅ Pros — ❌ Cons
 
-- Easy to Learn and Use
-
-- Efficient Data Management
-
-- Powerful Querying Capabilities
-
-- Standardized Language
-
-- Scalable
-
-- Secure
-
-- Supports Transactions
+| Pros                            | Cons                  |
+|---------------------------------|-----------------------|
+| Easy to Learn and Use.          |                       |
+| Efficient Data Management.      |                       |
+| Powerful Querying Capabilities. |                       |
+| Standardized Language.          |                       |
+| Scalable.                       |                       |
+| Secure.                         |                       |
+| Supports Transactions.          |                       |
 
 ## ❌ Cons
 
