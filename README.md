@@ -160,6 +160,15 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ## ✅ Pros
 
+- Works the same everywhere.
+
+- Fast and lightweight.
+
+- Easy to share apps.
+
+- Good for automating deployments.
+
+- Great for teams working together.
 
 ## ❌ Cons
 
