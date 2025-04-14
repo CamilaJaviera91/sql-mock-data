@@ -160,15 +160,13 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ## ✅ Pros & ❌ Cons
 
-- Works the same everywhere.
-
-- Fast and lightweight.
-
-- Easy to share apps.
-
-- Good for automating deployments.
-
-- Great for teams working together.
+| Pros                                      | Cons                    |
+|-------------------------------------------|-------------------------|
+| Works the same everywhere                 | `pip install pyspark`   |
+| Fast and lightweight.                     | `pip install pyspark`   |
+| Easy to share apps.                       | `pip install pyspark`   |
+| Good for automating deployments.          | `pip install pyspark`   |
+| Great for teams working together.         | `pip install pyspark`   |
 
 ## ❌ Cons
 
