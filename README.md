@@ -114,27 +114,17 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ## ✅ Pros — ❌ Cons
 
-| Pros                            | Cons                  |
-|---------------------------------|-----------------------|
-| Easy to Learn and Use.          |                       |
-| Efficient Data Management.      |                       |
-| Powerful Querying Capabilities. |                       |
-| Standardized Language.          |                       |
-| Scalable.                       |                       |
-| Secure.                         |                       |
-| Supports Transactions.          |                       |
+| Pros                            | Cons                           |
+|---------------------------------|--------------------------------|
+| Easy to Learn and Use.          | Not Ideal for Complex Logic.   |
+| Efficient Data Management.      | Different Dialects.            |
+| Powerful Querying Capabilities. | Can Get Complicated.           |
+| Standardized Language.          | Limited for Unstructured Data. |
+| Scalable.                       | Performance Tuning Required.   |
+| Secure.                         |                                |
+| Supports Transactions.          |                                |
 
-## ❌ Cons
-
-- Not Ideal for Complex Logic
-
-- Different Dialects
-
-- Can Get Complicated
-
-- Limited for Unstructured Data
-
-- Performance Tuning Required
+---
 
 # 🐳 What's Docker
 
