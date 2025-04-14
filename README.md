@@ -142,6 +142,9 @@ SELECT * FROM employees WHERE department = 'HR';
 
 # 🐳 What's Docker
 
+- Docker is a tool that lets you package your app with everything it needs, so it can run anywhere, without problems.
+
+- It does this using something called containers, which are like small, lightweight virtual machines.
 
 ## 🔑 Key Features:
 
