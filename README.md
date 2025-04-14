@@ -148,6 +148,8 @@ SELECT * FROM employees WHERE department = 'HR';
 | Good for automating deployments.  | Managing data storage can be tricky.                  |
 | Great for teams working together. |                                                       |
 
+## 🔧 Install Docker
+
 ---
 
 # 🛠️ Code Explanation
