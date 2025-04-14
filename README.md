@@ -150,6 +150,53 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ## 🔧 Install Docker on Fedora
 
+1. Update the system:
+
+```
+sudo dnf update -y
+```
+
+2. Install necessary packages for using HTTPS repositories:
+
+```
+sudo dnf install dnf-plugins-core -y
+```
+
+3. Add the official Docker repository:
+
+```
+sudo dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
+```
+
+4. Install Docker Engine:
+
+```
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+```
+
+5. Enable and start the Docker service:
+
+```
+sudo systemctl enable docker
+sudo systemctl start docker
+```
+
+6. Verify that Docker is running:
+
+```
+sudo docker run hello-world
+```
+
+7. (Optional) Run Docker without sudo:
+
+- If you want to use Docker without typing sudo every time:
+
+```
+sudo usermod -aG docker $USER
+```
+
+Then, log out and log back in (or reboot your system) for the change to take effect.
+
 ---
 
 # 🛠️ Code Explanation
