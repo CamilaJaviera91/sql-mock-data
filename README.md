@@ -158,7 +158,7 @@ SELECT * FROM employees WHERE department = 'HR';
 
 5. Docker Hub: A place to share and download app images.
 
-## ✅ Pros
+## ✅ Pros & ❌ Cons
 
 - Works the same everywhere.
 
