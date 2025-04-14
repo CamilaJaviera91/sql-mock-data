@@ -172,6 +172,13 @@ SELECT * FROM employees WHERE department = 'HR';
 
 ## ❌ Cons
 
+- Takes some time to learn.
+
+- Not ideal for apps that need a full operating system.
+
+- Security risks if not set up properly.
+
+- Managing data storage can be tricky.
 
 ---
 
