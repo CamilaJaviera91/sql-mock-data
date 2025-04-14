@@ -69,48 +69,48 @@ python3 -c "import pyspark; print(pyspark.__version__)"
 
 ## 🔑 Key Features:
 
-1. Data Querying: You can retrieve exactly the data you need using the SELECT statement.
+1. **Data Querying:** You can retrieve exactly the data you need using the SELECT statement.
 ```
 SELECT * FROM employees WHERE department = 'HR';
 ```
 
-2.Data Manipulation: SQL lets you insert, update, or delete records.
+2.**Data Manipulation:** SQL lets you insert, update, or delete records.
 
     - INSERT
     - UPDATE
     - DELETE
 
-3. Data Definition: You can create or change the structure of tables and databases.
+3. **Data Definition:** You can create or change the structure of tables and databases.
 
     - CREATE
     - ALTER
     - DROP
 
-4. Data Control: SQL allows you to control access to the data.
+4. **Data Control:** SQL allows you to control access to the data.
 
     - GRANT
     - REVOKE
 
-5. Transaction Control: Manage multiple steps as a single unit.
+5. **Transaction Control:** Manage multiple steps as a single unit.
 
     - BEGIN
     - COMMIT
     - ROLLBACK
 
-6. Filtering and Sorting:
+6. **Filtering and Sorting:**
     
     - WHERE
     - ORDER BY
     - GROUP BY
     - HAVING
 
-7. Joins: Combine data from multiple tables.
+7. **Joins:** Combine data from multiple tables.
 
-8. Built-in Functions: SQL includes powerful functions for calculations, text handling, dates, etc.
+8. **Built-in Functions:** SQL includes powerful functions for calculations, text handling, dates, etc.
 
-9. Standardized Language: SQL is used across most relational database systems (like PostgreSQL, MySQL, SQL Server, etc.), with only slight differences.
+9. **Standardized Language:** SQL is used across most relational database systems (like PostgreSQL, MySQL, SQL Server, etc.), with only slight differences.
 
-10. Declarative Nature: You tell SQL what you want, not how to do it. The database figures out the best way.
+10. **Declarative Nature:** You tell SQL what you want, not how to do it. The database figures out the best way.
 
 ## ✅ Pros — ❌ Cons
 
