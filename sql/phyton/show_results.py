@@ -53,7 +53,11 @@ def plot_salary_by_city():
     df = salary_by_city()
     if df is not None:
         plt.figure(figsize=(12, 6))
-        sns.barplot(x='total_salary', y='city', data=df, palette='Greens_d')
+        ax = sns.barplot(x='total_salary', y='city', data=df, palette='Greens_d')
+
+        for i in ax.containers:
+            ax.bar_label(i, fmt='%.0f', label_type='edge', padding=3)
+
         plt.title('Top 10 Total Salary by City (Monthly)')
         plt.xlabel('Total Salary')
         plt.ylabel('City')
