@@ -46,6 +46,19 @@ def plot_salary_by_city():
         plt.tight_layout()
         plt.show()
 
+def plot_hired_and_terminated():
+    df = hired_and_terminated()
+    if df is not None:
+        plt.figure(figsize=(12, 6))
+        plt.plot(df['year'], df['hired_count'], label='Hired', marker='o')
+        plt.plot(df['year'], df['terminated_count'], label='Terminated', marker='o')
+        plt.title('Hired and Terminated Employees by Year')
+        plt.xlabel('Year')
+        plt.ylabel('Count')
+        plt.legend()
+        plt.tight_layout()
+        plt.show()
+
 def main():
     print("=== Active Employees by City ===")
     plot_by_city()
@@ -55,6 +68,8 @@ def main():
     plot_by_age()
     print("=== Total Salary by City (Monthly) ===")
     plot_salary_by_city()
+    print("=== Hired and Terminated Employees by Year ===")
+    plot_hired_and_terminated()
 
 if __name__ == "__main__":
     main()
