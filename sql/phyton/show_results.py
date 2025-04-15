@@ -101,7 +101,6 @@ def plot_hired_and_terminated():
         plt.tight_layout()
         plt.show()
 
-
 def main():
     print("=== Active Employees by City ===")
     plot_by_city()
