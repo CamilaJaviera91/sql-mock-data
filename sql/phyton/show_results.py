@@ -30,12 +30,18 @@ def plot_by_department():
 
 def plot_by_age():
     df = by_age()
-    if df is not None:
+    if df is not None and not df.empty:
         plt.figure(figsize=(12, 6))
-        sns.lineplot(x='age', y='turnover_rate', data=df, marker='o')
-        plt.title('Turnover Rate by Age')
-        plt.xlabel('Age')
-        plt.ylabel('Turnover Rate')
+        ax = sns.lineplot(x='age', y='turnover_rate', data=df, marker='o', linewidth=2, color='teal')
+
+        for x, y in zip(df['age'], df['turnover_rate']):
+            ax.text(x, float(y) + 0.01, f'{float(y):.2f}', ha='center', va='bottom', fontsize=9)
+
+        ax.set_title('Turnover Rate by Age')
+        ax.set_xlabel('Age')
+        ax.set_ylabel('Turnover Rate')
+        ax.set_ylim(0, float(df['turnover_rate'].max()) + 0.1)
+        plt.grid(True, linestyle='--', alpha=0.5)
         plt.tight_layout()
         plt.show()
 
