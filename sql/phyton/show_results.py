@@ -6,7 +6,12 @@ def plot_by_city():
     df = by_city()
     if df is not None:
         plt.figure(figsize=(12, 6))
-        sns.barplot(x='active_employees', y='city', data=df, palette='Blues_d')
+        ax = sns.barplot(x='active_employees', y='city', data=df, palette='Blues_d')
+
+        # Agregar valores al final de cada barra
+        for i in ax.containers:
+            ax.bar_label(i, fmt='%.0f', label_type='edge', padding=3)
+
         plt.title('Top 10 Active Employees by City')
         plt.xlabel('Active Employees')
         plt.ylabel('Departament')
