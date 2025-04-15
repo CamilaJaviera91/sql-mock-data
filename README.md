@@ -371,3 +371,35 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 <img src="./images/pic16.png" alt="mock_data" width="500"/>
 
 ---
+
+## 👩‍💻 show_results.py
+
+### 🔧 Install libraries that we are going to need:
+
+| Library    | Description                                     | Installation Command             |
+|------------|-------------------------------------------------|----------------------------------|
+|            |                                                 |                                  |
+
+### 📖 Explanation of the Code:
+
+- This script:
+
+### ✅ Example Output:
+
+- **by_city()**
+
+- **by_department()**
+
+- **by_age()**
+
+- **salary_by_city()**
+
+- **salary_by_department()**
+
+- **salary_by_age()**
+
+- **hired_and_terminated()**
+    
+- **hired_and_terminated_department()**
+
+---
