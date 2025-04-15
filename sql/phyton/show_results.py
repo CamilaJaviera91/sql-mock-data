@@ -66,16 +66,26 @@ def plot_salary_by_city():
 
 def plot_hired_and_terminated():
     df = hired_and_terminated()
-    if df is not None:
+    if df is not None and not df.empty:
         plt.figure(figsize=(12, 6))
-        plt.plot(df['year'], df['hired_count'], label='Hired', marker='o')
-        plt.plot(df['year'], df['terminated_count'], label='Terminated', marker='o')
+
+        plt.plot(df['year'], df['hired_count'], label='Hired', marker='o', color='green')
+        plt.plot(df['year'], df['terminated_count'], label='Terminated', marker='o', color='red')
+
+        for x, y in zip(df['year'], df['hired_count']):
+            plt.text(x, y + 1, str(int(y)), ha='center', va='bottom', fontsize=9, color='green')
+
+        for x, y in zip(df['year'], df['terminated_count']):
+            plt.text(x, y + 1, str(int(y)), ha='center', va='bottom', fontsize=9, color='red')
+
         plt.title('Hired and Terminated Employees by Year')
         plt.xlabel('Year')
         plt.ylabel('Count')
         plt.legend()
+        plt.grid(True, linestyle='--', alpha=0.5)
         plt.tight_layout()
         plt.show()
+
 
 def main():
     print("=== Active Employees by City ===")
