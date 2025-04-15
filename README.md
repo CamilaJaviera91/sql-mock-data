@@ -376,9 +376,11 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ### 🔧 Install libraries that we are going to need:
 
-| Library    | Description                                     | Installation Command             |
-|------------|-------------------------------------------------|----------------------------------|
-|            |                                                 |                                  |
+| Library           | Description                                           | Installation Command          |
+|-------------------|-------------------------------------------------------|-------------------------------|
+| matplotlib.pyplot | To create visualizations (histograms and bar charts). | `pip install matplotlib`      |
+| seaborn           | For making nice statistical plots easily.             | `pip install seaborn`         |
+| queries           | Custom local module to establish DB connection.       | Make sure `queries.py` exists |
 
 ### 📖 Explanation of the Code:
 
