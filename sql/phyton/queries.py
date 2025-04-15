@@ -220,6 +220,8 @@ def main():
     salary_by_age()
     print("\n=== Hired and Terminated by Year ===")
     hired_and_terminated()
+    print("\n=== Hired and Terminated by Year and Department ===")
+    hired_and_terminated_department()
 
 if __name__ == "__main__":
     main()
