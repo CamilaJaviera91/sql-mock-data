@@ -314,13 +314,13 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ### 🔧 Install libraries that we are going to need:
 
-| Library    | Description                                    | Installation Command             |
-|------------|------------------------------------------------|----------------------------------|
-| psycopg2   | PostgreSQL driver required by SQLAlchemy       | `pip install psycopg2-binary`    |
-| pandas     | For working with CSVs and DataFrames           | `pip install pandas`             |
-| connection | Custom local module to establish DB connection | Make sure `connection.py` exists |
-| locale     | Built-in module for localization/formatting    | (built-in)                       |
-| sys        | Built-in module to modify the system path      | (built-in)                       |
+| Library    | Description                                     | Installation Command             |
+|------------|-------------------------------------------------|----------------------------------|
+| psycopg2   | PostgreSQL driver required by SQLAlchemy.       | `pip install psycopg2-binary`    |
+| pandas     | For working with CSVs and DataFrames.           | `pip install pandas`             |
+| connection | Custom local module to establish DB connection. | Make sure `connection.py` exists |
+| locale     | Built-in module for localization/formatting.    | (built-in)                       |
+| sys        | Built-in module to modify the system path.      | (built-in)                       |
 
 ### 📖 Explanation of the Code:
 
