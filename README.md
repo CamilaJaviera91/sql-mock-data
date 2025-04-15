@@ -386,6 +386,16 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 - This script:
 
+    - Imports data from predefined SQL queries (like by_city, by_age, etc.) using custom functions.
+
+    - Creates charts with Seaborn and Matplotlib to visualize employee data.
+
+    - Plots bar charts for active employees and salaries by city and department.
+
+    - Plots a line chart showing turnover rate by age, with value labels.
+
+    - Plots a line chart showing yearly hires and terminations, including count labels.
+
 ### ✅ Example Output:
 
 - **plot_by_city()**
