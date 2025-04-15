@@ -364,6 +364,6 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 - **hired_and_terminated()**
 
-<img src="./images/pic14.png" alt="mock_data" width="500"/>
+<img src="./images/pic15.png" alt="mock_data" width="500"/>
 
 ---
