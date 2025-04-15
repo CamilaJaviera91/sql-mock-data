@@ -175,6 +175,20 @@ def salary_by_age() -> pd.DataFrame | None:
     '''
     return run_query(query)
 
+def hired_and_terminated() -> pd.DataFrame | None:
+    """Query salary by age."""
+    query = '''
+        SELECT 
+            EXTRACT(YEAR FROM COALESCE(hire_date::DATE, termination_date::DATE)) AS year,
+            COUNT(*) FILTER (WHERE hire_date IS NOT NULL) AS hired_count,
+            COUNT(*) FILTER (WHERE termination_date IS NOT NULL) AS terminated_count
+        FROM employees
+        WHERE hire_date IS NOT NULL OR termination_date IS NOT NULL
+        GROUP BY EXTRACT(YEAR FROM COALESCE(hire_date::DATE, termination_date::DATE))
+        ORDER BY year;
+    '''
+    return run_query(query)
+
 def main():
     set_locale()
     print("=== Turnover by City ===")
@@ -189,6 +203,8 @@ def main():
     salary_by_department()
     print("\n=== Salary by Age ===")
     salary_by_age()
+    print("\n=== Hired and Terminated by Year ===")
+    hired_and_terminated()
 
 if __name__ == "__main__":
     main()
