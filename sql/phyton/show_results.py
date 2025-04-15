@@ -8,7 +8,6 @@ def plot_by_city():
         plt.figure(figsize=(12, 6))
         ax = sns.barplot(x='active_employees', y='city', data=df, palette='Blues_d')
 
-        # Agregar valores al final de cada barra
         for i in ax.containers:
             ax.bar_label(i, fmt='%.0f', label_type='edge', padding=3)
 
