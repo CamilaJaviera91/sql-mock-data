@@ -21,7 +21,11 @@ def plot_by_department():
     df = by_department()
     if df is not None:
         plt.figure(figsize=(12, 6))
-        sns.barplot(x='active_employees', y='department', data=df, palette='Purples_d')
+        ax = sns.barplot(x='active_employees', y='department', data=df, palette='Purples_d')
+
+        for i in ax.containers:
+            ax.bar_label(i, fmt='%.0f', label_type='edge', padding=3)
+
         plt.title('Active Employees by Department')
         plt.xlabel('Active Employees')
         plt.ylabel('Departament')
