@@ -354,7 +354,7 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 <img src="./images/pic12.png" alt="mock_data" width="500"/>
 
-<br>
+-**salary_by_department()**
 
 <img src="./images/pic14.png" alt="mock_data" width="500"/>
 
