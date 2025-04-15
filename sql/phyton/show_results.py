@@ -25,13 +25,13 @@ def plot_by_department():
         plt.show()
 
 def plot_by_age():
-    df = by_department()
+    df = by_age()
     if df is not None:
         plt.figure(figsize=(12, 6))
-        sns.barplot(x='active_employees', y='department', data=df, palette='Purples_d')
-        plt.title('Active Employees by Department')
-        plt.xlabel('Active Employees')
-        plt.ylabel('Departament')
+        sns.lineplot(x='age', y='turnover_rate', data=df, marker='o')
+        plt.title('Turnover Rate by Age')
+        plt.xlabel('Age')
+        plt.ylabel('Turnover Rate')
         plt.tight_layout()
         plt.show()
 
@@ -40,7 +40,7 @@ def main():
     plot_by_city()
     print("=== Active Employees by Department ===")
     plot_by_department()
-    print("=== Active Employees by Age ===")
+    print("=== Turnover Rate by Age ===")
     plot_by_age()
 
 if __name__ == "__main__":
