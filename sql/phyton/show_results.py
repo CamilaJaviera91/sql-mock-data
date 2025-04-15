@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
-from queries import by_city, by_department, by_age, salary_by_city, hired_and_terminated
+from queries import by_city, by_department, by_age, salary_by_city, salary_by_department, hired_and_terminated
 
 def plot_by_city():
     df = by_city()
@@ -61,6 +61,21 @@ def plot_salary_by_city():
         plt.title('Top 10 Total Salary by City (Monthly)')
         plt.xlabel('Total Salary')
         plt.ylabel('City')
+        plt.tight_layout()
+        plt.show()
+
+def plot_salary_by_department():
+    df = salary_by_department()
+    if df is not None:
+        plt.figure(figsize=(12, 6))
+        ax = sns.barplot(x='total_salary', y='department', data=df, palette='Greens_d')
+
+        for i in ax.containers:
+            ax.bar_label(i, fmt='%.0f', label_type='edge', padding=3)
+
+        plt.title('Top 10 Total Salary by Department (Monthly)')
+        plt.xlabel('Total Salary')
+        plt.ylabel('Department')
         plt.tight_layout()
         plt.show()
 
