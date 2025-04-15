@@ -338,6 +338,8 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ### ✅ Example Output:
 
+- **by_city()**
+
 <img src="./images/pic9.png" alt="mock_data" width="500"/>
 
 <br>
