@@ -111,6 +111,8 @@ def main():
     plot_by_age()
     print("=== Total Salary by City (Monthly) ===")
     plot_salary_by_city()
+    print("=== Total Salary by Department (Monthly) ===")
+    plot_salary_by_department()
     print("=== Hired and Terminated Employees by Year ===")
     plot_hired_and_terminated()
 
