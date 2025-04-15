@@ -388,20 +388,28 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ### ✅ Example Output:
 
-- **by_city()**
+- **plot_by_city()**
 
-- **by_department()**
+<img src="./images/pic17.png" alt="mock_data" width="500"/>
 
-- **by_age()**
+- **plot_by_department()**
 
-- **salary_by_city()**
+<img src="./images/pic18.png" alt="mock_data" width="500"/>
 
-- **salary_by_department()**
+- **plot_by_age()**
 
-- **salary_by_age()**
+<img src="./images/pic19.png" alt="mock_data" width="500"/>
 
-- **hired_and_terminated()**
-    
-- **hired_and_terminated_department()**
+- **plot_salary_by_city()**
+
+<img src="./images/pic20.png" alt="mock_data" width="500"/>
+
+- **plot_salary_by_department()**
+
+<img src="./images/pic21.png" alt="mock_data" width="500"/>
+
+- **plot_hired_and_terminated()**
+
+<img src="./images/pic22.png" alt="mock_data" width="500"/>
 
 ---
