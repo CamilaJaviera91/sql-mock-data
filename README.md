@@ -1,4 +1,4 @@
-# 🪪 SQL Mock Data 
+# 🪪 Synthetic Employee Dataset: SQL, PySpark & ML Pipeline
 
 #### This repository aims to:
 
