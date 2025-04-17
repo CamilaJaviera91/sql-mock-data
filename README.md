@@ -264,7 +264,7 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 <img src="./images/pic3.png" alt="mock_data" width="500"/>
 ---
 
-## 👩‍💻 3. analysis.py
+## 👩‍💻 Script 3: analysis.py — First analysis of the data
 
 ### 🔧 Install libraries that we are going to need:
 
