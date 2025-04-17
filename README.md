@@ -310,7 +310,7 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ---
 
-## 👩‍💻 Script queries.py — Create SQL queries
+## 👩‍💻 Script 4: queries.py — Create SQL queries
 
 ### 🔧 Install libraries that we are going to need:
 
@@ -372,7 +372,7 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ---
 
-## 👩‍💻 show_results.py
+## 👩‍💻 Script 5: show_results.py — Plot SQL queries
 
 ### 🔧 Install libraries that we are going to need:
 
