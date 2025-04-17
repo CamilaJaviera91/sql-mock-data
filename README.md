@@ -57,7 +57,7 @@ python3 -c "import pyspark; print(pyspark.__version__)"
 
 ---
 
-# 🗃️ What's SQL (Structured Query Language)
+# 🗃️ Introduction to SQL (Structured Query Language)
 
 - SQL is how we read, write, and manage data stored in databases.
 
