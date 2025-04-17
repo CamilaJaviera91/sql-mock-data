@@ -310,7 +310,7 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ---
 
-## 👩‍💻 queries.py
+## 👩‍💻 Script queries.py — Create SQL queries
 
 ### 🔧 Install libraries that we are going to need:
 
