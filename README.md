@@ -234,7 +234,7 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ---
 
-## 👩‍💻 2. insert.py
+## 👩‍💻 Script 2: insert.py — Insert data into postgres
 
 ### 🔧 Install libraries that we are going to need:
 
