@@ -10,6 +10,27 @@
 
 - Implement predictive models with machine learning to project trends in hiring and layoffs on a monthly and yearly basis.
 
+# 📁 Project Structure
+
+```
+sql-mock-data/
+├── data/
+│   └── *.csv                  # Synthetic employee data files
+├── images/
+│   └── pic*.png               # Visualizations and example outputs
+├── python/
+│   ├── sql_mock_data.py       # Script to generate synthetic data
+│   ├── insert.py              # Script to insert data into PostgreSQL
+│   ├── analysis.py            # Data analysis using PySpark
+│   ├── queries.py             # SQL queries for data retrieval
+│   ├── show_results.py        # Visualization of query results
+│   └── connection.py          # Database connection setup
+├── sql/
+│   └── schema.sql             # SQL schema definitions
+├── .gitignore                 # Specifies files to ignore in Git
+└── README.md                  # Project documentation
+```
+
 # 🔥 Introduction to PySpark
 - **PySpark** it's the Python API for Apache Spark, enabling the use of Spark with Python.
 
