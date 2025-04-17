@@ -10,7 +10,7 @@
 
 - Implement predictive models with machine learning to project trends in hiring and layoffs on a monthly and yearly basis.
 
-# 🔥 What's pyspark?
+# 🔥 Introduction to PySpark
 - It's the Python API for Apache Spark, enabling the use of Spark with Python.
 
 ## 🔑 Key Features:
