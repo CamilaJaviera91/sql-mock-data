@@ -201,7 +201,7 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 # 🛠️ Code Explanation
 
-## 👩‍💻 1. sql_mock_data.py
+## 👩‍💻 Script 1: sql_mock_data.py — Generate Mock Data
 
 ### 🔧 Install libraries that we are going to need:
 
