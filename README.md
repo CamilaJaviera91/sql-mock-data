@@ -2,9 +2,9 @@
 
 #### This repository aims to:
 
-- Generate a synthetic dataset with one million records simulating employee information from a fictional company.
+- **Generate** a synthetic dataset with one million records simulating employee information from a fictional company.
 
-- Load the generated data into a PostgreSQL database using integration tools.
+- **Load** the generated data into a PostgreSQL database using integration tools.
 
 - Develop analytical reports using PySpark, applying large-scale data analysis techniques.
 
