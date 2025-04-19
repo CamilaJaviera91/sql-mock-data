@@ -308,13 +308,13 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ## 👩‍💻 Script 3: analysis.py — First analysis of the data
 
-### 🔧 Install libraries that we are going to need:
+### 🔧 Libraries that we are going to need:
 
-| Library            | Description                                           | Installation Command     |
-|--------------------|-------------------------------------------------------|--------------------------|
-| PySpark            | Apache Spark Python API (for big data).               | `pip install pyspark`    |
-| matplotlib.pyplot  | To create visualizations (histograms and bar charts). | `pip install matplotlib` |
-| logging            | To track execution flow and info messages.            | (built-in)               |
+| Library            | Description                                           |
+|--------------------|-------------------------------------------------------|
+| PySpark            | Apache Spark Python API (for big data).               |
+| matplotlib.pyplot  | To create visualizations (histograms and bar charts). |
+| logging            | To track execution flow and info messages.            |
 
 ### 📖 Explanation of the Code:
 
