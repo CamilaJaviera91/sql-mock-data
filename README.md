@@ -10,6 +10,27 @@
 
 - **Implement** predictive models with machine learning to project trends in hiring and layoffs on a monthly and yearly basis.
 
+# 📝 requirements.txt file
+
+1. Create a file named **requirements.txt** with the following content:
+
+```
+pandas
+numpy
+faker
+psycopg2-binary
+pyspark
+scikit-learn
+matplotlib
+seaborn
+```
+
+2. Then, **install** all dependencies by running:
+
+```
+pip install -r requirements.txt
+```
+
 # 📁 Project Structure
 
 ```
