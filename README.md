@@ -321,6 +321,12 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ### 🔧 Libraries that we are going to need:
 
+| Library | Description                                                            |
+|---------|------------------------------------------------------------------------|
+| pandas  | For working with CSVs and DataFrames.                                  |
+| os      | For cross-platform file handling and directory management.             |
+| random  | For generate random numbers, shuffle data, and make random selections. |
+
 ### 📖 Explanation of the Code:
 
 ### ✅ Example Output:
