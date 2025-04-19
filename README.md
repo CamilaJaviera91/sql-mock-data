@@ -1,14 +1,15 @@
 # 🪪 Synthetic Employee Dataset: SQL, PySpark & ML Pipeline
 
-#### This repository aims to:
+## SQL Mock Data
 
-- **Generate** a synthetic dataset with one million records simulating employee information from a fictional company.
+- This project generates synthetic employee data using Python and Faker, stores it in a PostgreSQL database, and performs analytics and machine learning modeling using PySpark and Scikit-learn. It's designed for data engineering and data science practice, focusing on realistic HR-style datasets and workflows.
 
-- **Load** the generated data into a PostgreSQL database using integration tools.
+- **Key features include:**
+    - Synthetic data generation with customizable logic
+    - PostgreSQL integration
+    - PySpark data processing and transformations
+    - Predictive modeling for employee attrition
 
-- **Develop** analytical reports using PySpark, applying large-scale data analysis techniques.
-
-- **Implement** predictive models with machine learning to project trends in hiring and layoffs on a monthly and yearly basis.
 
 # 📝 requirements.txt file
 
