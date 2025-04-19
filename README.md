@@ -317,7 +317,17 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ---
 
-## 👩‍💻 Script 2: insert.py — Insert data into postgres
+## 👩‍💻 Script 2: edit_data.py — Edit Mock Data
+
+### 🔧 Libraries that we are going to need:
+
+### 📖 Explanation of the Code:
+
+### ✅ Example Output:
+
+---
+
+## 👩‍💻 Script 3: insert.py — Insert data into postgres
 
 ### 🔧 Libraries that we are going to need:
 
@@ -347,7 +357,7 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 <img src="./images/pic3.png" alt="mock_data" width="500"/>
 ---
 
-## 👩‍💻 Script 3: analysis.py — First analysis of the data
+## 👩‍💻 Script 4: analysis.py — First analysis of the data
 
 ### 🔧 Libraries that we are going to need:
 
@@ -393,7 +403,7 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ---
 
-## 👩‍💻 Script 4: queries.py — Create SQL queries
+## 👩‍💻 Script 5: queries.py — Create SQL queries
 
 ### 🔧 Libraries that we are going to need:
 
@@ -455,7 +465,7 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ---
 
-## 👩‍💻 Script 5: show_results.py — Plot SQL queries
+## 👩‍💻 Script 6: show_results.py — Plot SQL queries
 
 ### 🔧 Libraries that we are going to need:
 
