@@ -10,10 +10,19 @@
     - PySpark data processing and transformations
     - Predictive modeling for employee attrition
 
+## 🚀 Getting Started
 
-# 📝 requirements.txt file
+### 1. Clone the repository
+```
+git clone https://github.com/CamilaJaviera91/sql-mock-data.git
+```
 
-1. Create a file named **requirements.txt** with the following content:
+### 2. Open the folder in your computer
+```
+cd your/route/sql-mock-data
+```
+
+### 3. Create a file named **requirements.txt** with the following content:
 
 ```
 pandas
@@ -26,9 +35,10 @@ matplotlib
 seaborn
 ```
 
-2. Then, **install** all dependencies by running:
-
+### 4. Create a virtual environment and install dependencies
 ```
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
