@@ -325,6 +325,8 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ### ✅ Example Output:
 
+<img src="./images/pic23.png" alt="mock_data" width="500"/>
+
 ---
 
 ## 👩‍💻 Script 3: insert.py — Insert data into postgres
