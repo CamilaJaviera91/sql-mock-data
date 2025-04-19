@@ -42,6 +42,15 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
+### 5. Set up the PostgreSQL database
+
+    1. Create a database called mockdata
+
+    2. Run the DDL scripts in db/schema.sql
+
+    3. Insert mock data using db/insert_data.sql or generate fresh data (see below)
+
+
 # 📁 Project Structure
 
 ```
