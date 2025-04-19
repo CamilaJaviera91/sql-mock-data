@@ -416,13 +416,13 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ## 👩‍💻 Script 5: show_results.py — Plot SQL queries
 
-### 🔧 Install libraries that we are going to need:
+### 🔧 Libraries that we are going to need:
 
-| Library           | Description                                           | Installation Command          |
-|-------------------|-------------------------------------------------------|-------------------------------|
-| matplotlib.pyplot | To create visualizations (histograms and bar charts). | `pip install matplotlib`      |
-| seaborn           | For making nice statistical plots easily.             | `pip install seaborn`         |
-| queries           | Custom local module to establish DB connection.       | Make sure `queries.py` exists |
+| Library           | Description                                           |
+|-------------------|-------------------------------------------------------|
+| matplotlib.pyplot | To create visualizations (histograms and bar charts). |
+| seaborn           | For making nice statistical plots easily.             |
+| queries           | Custom local module to establish DB connection.       |
 
 ### 📖 Explanation of the Code:
 
