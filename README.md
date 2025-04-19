@@ -506,3 +506,10 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 <img src="./images/pic22.png" alt="mock_data" width="500"/>
 
 ---
+
+# 🔮 Future Enhancements
+
+- [ ] Add DBT models for transformation and documentation.
+- [ ] Streamline data generation for large-scale datasets.
+- [ ] Add Airflow DAG for orchestration.
+- [ ] Deploy insights via Looker Studio or Power BI dashboard.
