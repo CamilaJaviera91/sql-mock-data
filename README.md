@@ -329,6 +329,21 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ### 📖 Explanation of the Code:
 
+- This script:
+
+    - Reads all .csv files from a folder called data, and saves enriched versions to data_enriched.
+
+    - Reads a list of known female first names from a text file (female_names.txt) to help determine gender.
+
+    - Provides a list of 20 possible job titles for each department like Sales, IT, HR, etc., to assign randomly.
+
+    - For every CSV:
+        - Adds a status column (Active or Inactive depending on termination_date).
+        - Adds a gender column using the first name.
+        - Adds a job_title column based on the department.
+
+    - Writes the enriched data to a new CSV in the data_enriched folder and prints a confirmation.
+
 ### ✅ Example Output:
 
 <img src="./images/pic23.png" alt="mock_data" width="500"/>
