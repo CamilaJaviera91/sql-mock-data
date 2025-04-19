@@ -245,7 +245,7 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ## 👩‍💻 Script 1: sql_mock_data.py — Generate Mock Data
 
-### 🔧 Install libraries that we are going to need:
+### 🔧 Libraries that we are going to need:
 
 | Library   | Description                                                    |
 |-----------|----------------------------------------------------------------|
