@@ -44,19 +44,33 @@ pip install -r requirements.txt
 
 ### 5. Set up the PostgreSQL database
 
-    1. Create a database called mockdata
+1. Create a new database called **employees**.
 
-    2. Run the DDL scripts in db/schema.sql
+2. Generate mock data.
 
-    3. Insert mock data generating fresh data (see below)
+3. Insert mock data into our new schema.
 
 ### 6. Generate and insert mock data into the database
 ```
 python your/route/sql-mock-data/sql_mock_data.py
 
 python your/route/sql-mock-data/insert.py
-
 ```
+
+# 📚 Data Dictionary
+
+| Column           | Description                         | Type    |
+|------------------|-------------------------------------|---------|
+| id               | Unique identifier                   | Integer |
+| name             | full name of the employee           | Text    |
+| date_birth       | Date of birth if the employee       | Date    |
+| department       | Department where the employee works | Text    |
+| email            | Employee work email                 | Text    |
+| phonenumber      | Work phonenumber of the employee    | Text    |
+| yearly_salary    | Yearly salary in USD                | Integer |
+| city             | City where the employee lives       | Text    |
+| hire_date        | Date when the employee was hired    | Date    |
+| termination_date | Date when the employee was fired    | Date    |
 
 # 📁 Project Structure
 
