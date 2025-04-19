@@ -48,8 +48,15 @@ pip install -r requirements.txt
 
     2. Run the DDL scripts in db/schema.sql
 
-    3. Insert mock data using db/insert_data.sql or generate fresh data (see below)
+    3. Insert mock data generating fresh data (see below)
 
+### 6. Generate and insert mock data into the database
+```
+python your/route/sql-mock-data/sql_mock_data.py
+
+python your/route/sql-mock-data/insert.py
+
+```
 
 # 📁 Project Structure
 
