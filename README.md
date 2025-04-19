@@ -278,16 +278,16 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ## 👩‍💻 Script 2: insert.py — Insert data into postgres
 
-### 🔧 Install libraries that we are going to need:
+### 🔧 Libraries that we are going to need:
 
-| Library       | Description                                                | Installation Command          |
-|---------------|------------------------------------------------------------|-------------------------------|
-| pandas        | For working with CSVs and DataFrames.                      | `pip install pandas`          |
-| sqlalchemy    | Python SQL toolkit and ORM.                                | `pip install sqlalchemy`      |
-| psycopg2      | PostgreSQL driver required by SQLAlchemy.                  | `pip install psycopg2-binary` |
-| python-dotenv | helps you load environment variables from `.env` file.     | `pip install python-dotenv`   |
-| glob	        | Standard library for file pattern matching.                |  (built-in)                   |
-| os	        | For cross-platform file handling and directory management. |  (built-in)                   |
+| Library       | Description                                                |
+|---------------|------------------------------------------------------------|
+| pandas        | For working with CSVs and DataFrames.                      |
+| sqlalchemy    | Python SQL toolkit and ORM.                                |
+| psycopg2      | PostgreSQL driver required by SQLAlchemy.                  |
+| python-dotenv | helps you load environment variables from `.env` file.     |
+| glob	        | Standard library for file pattern matching.                |
+| os	        | For cross-platform file handling and directory management. |
 
 ### 📖 Explanation of the Code:
 
