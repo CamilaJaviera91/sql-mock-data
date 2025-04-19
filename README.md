@@ -354,7 +354,7 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ## 👩‍💻 Script 4: queries.py — Create SQL queries
 
-### 🔧 Install libraries that we are going to need:
+### 🔧 Libraries that we are going to need:
 
 | Library    | Description                                     |
 |------------|-------------------------------------------------|
