@@ -559,6 +559,11 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 ### 📖 Explanation of the Code:
 
 ### ✅ Example Output:
+
+<img src="./images/pic24.png" alt="mock_data" width="500"/>
+
+<img src="./images/pic25.png" alt="mock_data" width="500"/>
+
 ---
 
 # 🔮 Future Enhancements
