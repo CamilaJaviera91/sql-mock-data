@@ -560,6 +560,16 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 - This script:
 
+    - Connects to a database and gets data about how many people were hired and fired each year.
+
+    - Learns the trend using machine learning (linear regression).
+
+    - Predicts how many people will be hired and fired in the next 3 years.
+
+    - Shows the results in a table.
+
+    - Draws a chart to compare real and predicted numbers.
+
 ### ✅ Example Output:
 
 <img src="./images/pic24.png" alt="mock_data" width="500"/>
