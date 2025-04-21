@@ -544,6 +544,18 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ### 🔧 Libraries that we are going to need:
 
+| Library              | Description                                                 |
+|----------------------|-------------------------------------------------------------|
+| sys                  | Built-in module to modify the system path.                  |
+| connection           | Custom local module to establish DB connection.             |
+| queries              | Custom local module to establish DB connection.             |
+| psycopg2             | PostgreSQL driver required by SQLAlchemy.                   |
+| pandas               | For working with CSVs and DataFrames.                       |
+| locale               | Built-in module for localization/formatting.                |
+| matplotlib.pyplot    | To create visualizations (histograms and bar charts).       |
+| numpy                | For working with numerical data, especially arrays/matrices.|
+| sklearn.linear_model | To predict future values.                                   |
+
 ### 📖 Explanation of the Code:
 
 ### ✅ Example Output:
