@@ -540,6 +540,15 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 ---
 
+## 👩‍💻 Script 7: prediction.py — Predict employees hired and terminated 
+
+### 🔧 Libraries that we are going to need:
+
+### 📖 Explanation of the Code:
+
+### ✅ Example Output:
+---
+
 # 🔮 Future Enhancements
 
 - [ ] Add DBT models for transformation and documentation.
