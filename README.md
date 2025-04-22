@@ -580,7 +580,8 @@ Then, log out and log back in (or reboot your system) for the change to take eff
 
 # 🔮 Future Enhancements
 
-- [ ] Add DBT models for transformation and documentation.
+- [x] Add DBT models for transformation and documentation.
+    - [Link Repo](https://github.com/CamilaJaviera91/dbt-transformations-sql-mock-data)
 - [ ] Streamline data generation for large-scale datasets.
 - [ ] Add Airflow DAG for orchestration.
 - [ ] Deploy insights via Looker Studio or Power BI dashboard.
