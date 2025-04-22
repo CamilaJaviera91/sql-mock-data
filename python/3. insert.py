@@ -22,7 +22,7 @@ def load_env():
     
     return config
 
-def get_csv_files(path='./data/*.csv'):
+def get_csv_files(path='./data_enriched/*.csv'):
     files = glob.glob(path)
     if not files:
         raise FileNotFoundError("No CSV files found in ./data/")
