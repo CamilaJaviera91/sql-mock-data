@@ -584,4 +584,5 @@ Then, log out and log back in (or reboot your system) for the change to take eff
     - [Link Repo](https://github.com/CamilaJaviera91/dbt-transformations-sql-mock-data)
 - [ ] Streamline data generation for large-scale datasets.
 - [ ] Add Airflow DAG for orchestration.
-- [ ] Deploy insights via Looker Studio or Power BI dashboard.
+- [x] Deploy insights via Looker Studio or Power BI dashboard.
+    - [Link Looker Studio](https://lookerstudio.google.com/u/0/reporting/2f57d2bd-7afe-4c5b-8793-303f85687b22/page/tEnnC)
